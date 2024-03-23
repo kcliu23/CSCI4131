@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="id01"></div>
+
+<script>
+
+let url = "locations.txt";
+
+alert("url is: " + url);
+
+fetch(url)
+	.then(response => {
+         console.log("Status is: " + response.status);
+		 return response.text();
+		 })
+	.then(html=>{console.log(html)
+				 var myArr = JSON.parse(html);
+				 myFunction(myArr);})
+	.catch(error=> console.log("Request failed",error));
+
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out +=  arr[i].lat + '<br>' + arr[i].lon + '<br><br>';
+    }
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+
+</body>
+</html>

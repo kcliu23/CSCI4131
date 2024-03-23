@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Possible HW2 constructs</title>
+		<style>
+			table, tr, td {
+					border:0.25em solid black;
+					border-collapse:collapse;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<script>
+			function chgimg(name, txt) {
+				// Debug output statements - rudimentary stuff
+				var theimage = document.getElementById("image");
+				theimage.src = name;
+				theimage.alt = txt;
+			}
+		</script>
+		<table>
+			<tr>
+				<td onmouseover= "chgimg('./08ShepherdLabs960.jpg', 'Shepherd Labs')"> Shepherd Labs </td>
+				<td> 100 Union St SE <br> Minneapolis, MN 55455 </td>
+			</tr> 
+		</table>
+		<div>
+			<img id="image" src="./gophers-mascot.png" alt="Goldy Gopher">
+		</div>
+	</body>
+<html>
+
+		

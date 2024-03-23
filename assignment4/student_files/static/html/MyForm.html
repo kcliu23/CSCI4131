@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Event</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/MySchedule.html">My Schedule</a></li>
+            <li><a href="/MyForm.html">Form Input</a></li>
+            <li><a href="/AboutMe.html">About Me</a></li>
+            <li><a href="/EventLog.html">Event History</a></li>
+            <li><a href="/stockQuotes.html">My Stock</a></li>
+            <li><a href="/MyServer.html">My Server</a></li>
+        </ul>
+    </nav>
+    <div id = "form-container">
+
+        <form id="eventForm" method="post" action="/EventLog.html" >
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="event" required pattern="[a-zA-Z0-9 ]+">
+            
+            <label for="dayOfWeek">Day of Week:</label>
+            <select id="dayOfWeek" name="day" required>
+                <option value="" disabled selected>Select a day</option>
+                <option value="Mon">Monday</option>
+                <option value="Tue">Tuesday</option>
+                <option value="Wed">Wednesday</option>
+                <option value="Thu">Thursday</option>
+                <option value="Fri">Friday</option>
+                <option value="Sat">Saturday</option>
+                <option value="Sun">Sunday</option>
+            </select>
+            
+            <label for="startTime">Start Time:</label>
+            <input type="time" id="startTime" name="start" required>
+            
+            <label for="stopTime">Stop Time:</label>
+            <input type="time" id="stopTime" name="end" required>
+            
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phone" required pattern="^[0-9 +]{0,2}\d{9}$">
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            
+            <label for="extraInfo">Extra Info:</label>
+            <textarea id="extraInfo" name="extra"></textarea>
+            
+            <label for="eventUrl">URL:</label>
+            <input type="url" id="eventUrl" name="url" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <div id="formMap"></div>
+    </div>
+    <script src="../js/formMap.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMhln2-qPU_-salwbvdckQr0o17hB8iic&loading=async&libraries=places&callback=mapInit"></script>
+</body>
+</html>

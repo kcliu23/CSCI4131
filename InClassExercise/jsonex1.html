@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON Object Example 1</h2>
+
+<p id="demo"></p>
+
+<script>
+var text = '{"name":"President Biden","streetaddress":"1600 Pennsylvania Ave.","phone":"202 4561414"}'
+
+var obj = JSON.parse(text);
+
+
+document.getElementById("demo").innerHTML =
+obj.name + "<br>" +
+obj.streetaddress + "<br>" +
+obj.phone;
+</script>
+
+</body>
+</html>

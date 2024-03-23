@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map and Geocoder used to place marker with infoWindow</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		#map {
+			height: 50%;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-top: 10%;
+		}
+		#floating-panel {
+			position: relative;
+			margin-left: 10%;
+			margin-right: 10%;
+  			background-color: #fff;
+			padding: 5px;
+			text-align: center;
+			font-family: 'Roboto','sans-serif';
+			line-height: 30px;
+			padding-left: 10px;
+		}	
+    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+	<div id="map"></div>
+    <script>
+	/* Authors :  Dan 
+		Fall 18 */
+		
+	var marker2;
+	var infowindow2;
+
+	function initMap() {
+		var myLatLng = {lat: 44.977276, lng: -93.232266};
+		/* Create a map and place it on the div */
+		var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 16,
+				center: myLatLng
+			});
+        var geocoder = new google.maps.Geocoder(); // Create a geocoder object
+
+		var location = "Keller Hall, MN"; // This is the location we will search for using the geocoder
+		/* For your Homework assignment 3, you will have to create the code to return * the location of the address and use it to put a marker with an infowindow 
+		* on the map
+		*/
+		geocodeAddress(geocoder, map, location);  
+	}  // end init map function definiton
+
+	// This function takes a geocode object, a map object, and an address, and 
+	// if successful in finding the address, it places a marker with a callback that shows an 
+	// info window when the marker is "clicked"
+	function geocodeAddress(geocoder, resultsMap, address) {
+ 
+		geocoder.geocode({'address': address}, function(results, status) {
+			if (status === google.maps.GeocoderStatus.OK) {
+					resultsMap.setCenter(results[0].geometry.location);
+					marker2 = new google.maps.Marker({
+								map: resultsMap,
+								position: results[0].geometry.location,
+								title:address
+								});
+					infowindow2 = new google.maps.InfoWindow({
+								content: address
+								});
+    
+					google.maps.event.addListener(marker2, 'click', createWindow(resultsMap,infowindow2, marker2));
+			} else {
+					alert('Geocode was not successful for the following reason: ' + status);
+			} //end if-then-else
+		}); // end call to geocoder.geocode function
+	} // end geocodeAddress function
+	
+	// Function to return an anonymous function that will be called when the rmarker created in the 
+    // geocodeAddress function is clicked	
+	function createWindow(rmap, rinfowindow, rmarker){
+              return function(){
+				rinfowindow.open(rmap, rmarker);
+            }
+    }//end create (info) window
+
+    </script> 
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMhln2-qPU_-salwbvdckQr0o17hB8iic&loading=async&libraries=places&callback=initMap" async defer></script>
+	<em>*This page has been tested in Google Chrome</em>
+  </body>
+</html>

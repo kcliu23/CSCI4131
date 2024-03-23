@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<!-- Addition script. -->
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>Add and Multiply Program</title>
+      <script>
+
+
+         var number1; // first number to add
+         var number2; // second number to add
+         var sum; // sum of number1 and number2
+         var product; // product of number1 and number2
+
+         // read in first number from user as a string, use the window object’s prompt method
+         // The window object is a global object  - all methods and properties that are not part of another object are part of the window object
+		 number1 = window.prompt("Enter first integer");
+		 
+         // read in second number from user as a string – note you can omit the object name and dot operator 
+         // when referring to properties or attributes of the window object because it is global
+		 number2 = window.prompt("Enter second integer");
+
+         //convert numbers from strings to integers
+         number1 = parseInt( number1 ); 
+         number2 = parseInt( number2 );
+         
+         sum = number1 + number2; // add the numbers
+         product = number1 * number2; //multiply the numbers
+
+         // display the results – uses the document object, highest object in the DOM structure. You have to use object name and dot operator.
+         document.writeln( "<h1>The sum is " + sum + "</h1>" );
+         document.writeln( "<h1>The product is " + product + "</h1>" );
+      </script>
+   </head><body></body>
+</html>

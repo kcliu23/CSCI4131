@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <title>MyServer</title>
+  <style>
+    div {
+      text-align: center;
+      margin-bottom: 5%;
+    }
+
+    #links ul li {
+      display: inline;
+      margin-right: 30px;
+    }
+
+    label {
+      margin-right: 5px;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="/MySchedule.html">My Schedule</a></li>
+      <li><a href="/MyForm.html">Form Input</a></li>
+      <li><a href="/AboutMe.html">About Me</a></li>
+      <li><a href="/EventLog.html">Event History</a></li>
+      <li><a href="/stockQuotes.html">My Stock</a></li>
+      <li><a href="/MyServer.html">My Server</a></li>
+    </ul>
+  </nav>
+  <center>
+    <h1>MyServer Page</h1></br>
+  </center>
+  <div id='links'>
+    <ul>
+      <li> <a href="Coffman.html"> Coffman Picture</a> </li>
+      <li> <a href="Coffman_N_OuttaSpace.html"> Coffman + OuttaSpace</a> </li>
+      <li> <a href="OuttaSpace.html"> OuttaSpace MP3</a> </li>
+      <li> <a href="files"> File Explorer</a> </li>
+    </ul>
+    <hr>
+    <h1>Search</h1>
+    <form action="/redirect" method="get">
+      <label for="website">Website:</label>
+      <select id="website" name="website">
+        <option value="https://www.google.com/search?q=">Google</option>
+        <option value="https://www.youtube.com/results?search_query=">YouTube</option>
+      </select>
+      <br>
+      <label for="query">Query:</label>
+      <input type="text" id="query" name="query">
+      <input type="submit" value="Search">
+    </form>
+    <hr>
+    <h1>Simple Calculator</h1>
+    <form action="/calculator" method="get">
+      <label for="number1">Number 1:</label>
+      <input type="number" id="number1" name="number1" required><br><br>
+      <label for="operator">Operator:</label>
+      <select id="operator" name="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select><br><br>
+      <label for="number2">Number 2:</label>
+      <input type="number" id="number2" name="number2" required><br><br>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+  <hr>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location Coordinates</title>
+</head>
+<body>
+  <div id="locations">
+    <h1>JSON OBJECT EXERCISE</h1>
+  </div>
+
+  <script>
+    var jsonString = '{"lat1": "44.95045", "lon1": "-93.345002", "lat2": "44.95045", "lon2": "-93.345002"}';
+
+    var locationData = JSON.parse(jsonString);
+
+    var locationsDiv = document.getElementById('locations');
+    var listElement = document.createElement('ul');
+
+    for (var key in locationData) {
+      if (locationData.hasOwnProperty(key)) {
+        var listItem = document.createElement('li');
+        listItem.textContent = key + ': ' + locationData[key];
+        listElement.appendChild(listItem);
+      }
+    }
+
+    locationsDiv.appendChild(listElement);
+
+    var jsonStringified = JSON.stringify(locationData);
+    alert(jsonStringified);
+  </script>
+</body>
+</html>

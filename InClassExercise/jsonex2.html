@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON Array Creation in JavaScript</h2>
+
+<p id="result"></p>
+
+<script>
+var nums = '["200","400","600","800"]';
+
+var anarray = JSON.parse(nums);
+
+var sum = 0;
+for (i = 0; i < anarray.length; i++) {
+	sum += parseInt(anarray[i]);
+	}
+document.getElementById("result").innerHTML = sum;
+
+</script>
+
+</body>
+</html>

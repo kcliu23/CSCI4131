@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>set and clear interval race condition example</title>		
+		<script>
+			function clock() {
+				var datetoday = new Date();
+				var timenow= datetoday.toLocaleTimeString();
+				document.getElementById("myclock").value= timenow;
+			}
+			
+			var intId = setInterval(function(){clock()},1000);
+		</script>
+	</head>
+	<body>
+		<input type="text" id="myclock">
+		<button onclick="intId=clearInterval(intId)">Stop</button>
+	</body>
+</html>
+<!-- yes there is a race condition  when using clearInterval function the onclick hanfler attempts to 
+clear the intID while clock() fucnction is shecduled to execute. one way to fix it is by writing 
+individual function for start interval and clear interval using two buttons
+    function startInterval() {
+      intId = setInterval(function () {
+        clock();
+      }, 1000);
+    }
+
+    function stopInterval() {
+      clearInterval(intId);
+    }
+  <input type="text" id="myclock">
+  <button onclick="stopInterval()">Stop</button>
+  <button onclick="startInterval()">Start</button>-->

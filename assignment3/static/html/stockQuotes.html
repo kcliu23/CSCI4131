@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>My Stock</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/MySchedule.html">My Schedule</a></li>
+            <li><a href="/MyForm.html">Form Input</a></li>
+            <li><a href="/AboutMe.html">About Me</a></li>
+            <li><a href="/EventLog.html">Event History</a></li>
+            <li><a href="/stockQuotes.html">My Stock</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Include stocks.js library -->
+    <script src="../js/stocks.js"></script>
+    
+    <h1>Stock Quotes</h1>
+    <div id = "stock">
+
+        <label for="tickerSymbol">Enter Stock Ticker Symbol:</label>
+        <input type="text" id="tickerSymbol">
+        
+        <button id="fetchButton">Fetch Quote</button>
+        
+        <br>
+        
+        <p>API RESPONSES</p>
+        <textarea id="quoteDisplay" rows="10" cols="50" readonly></textarea>
+    </div>
+
+    <!-- Include stockQuotes.js script -->
+    <script src="../js/stockQuotes.js"></script>
+</body>
+</html>
